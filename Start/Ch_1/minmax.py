@@ -9,7 +9,8 @@ strings = ["one", "three", "five", "seven", "eleven", "eighteen"]
 
 
 # TODO: The min() function finds the minimum value
-
+print(f"The minimum value is: {min(values)}")
+print(f"The minimum value is: {min(strings,key=len)}")
 
 # TODO: The max() function finds the maximum value
 
