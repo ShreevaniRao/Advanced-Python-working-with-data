@@ -13,7 +13,8 @@ print(f"The minimum value is: {min(values)}")
 print(f"The minimum value is: {min(strings,key=len)}")
 
 # TODO: The max() function finds the maximum value
-
+print(f"The minimum value is: {max(values)}")
+print(f"The minimum value is: {max(strings,key=len)}")
 
 # TODO: define a custom "key" function to extract a data field
 
