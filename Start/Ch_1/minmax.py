@@ -1,34 +1,33 @@
 # Example file for Advanced Python: Working With Data by Joe Marini
-# sorting data with the sorted() and sort() functions
-
+# Demonstrates the usage of the min and max functions
 import json
 
 
-numbers = [42, 54, 19, 17, 23, 31, 16, 4]
-names = ["Jeff", "Bill", "Addie", "Stephanie", "Zach", "Lukas", "Joe", "Stacy"]
-
-# TODO: the sorted() function can be used to return a new list with sorted data
- 
-Result1 = sorted(numbers)
-print(Result1)
-# # TODO: alternately, you can use the list object's sort() method, which sorts the list in-place
-names.sort(reverse=True)
-print(names)
-# TODO: To sort custom objects, we can tell the sort function which property to use
-# by specifying a key function
-
-# open the data file and load the JSON
-with open("./30DayQuakes.json", "r") as datafile:
-    data = json.load(datafile)
+# Declare an array with some sample data in it
+values = [3.0, 2.5, 5.1, 4.1, 1.8, 1.6, 2.2, 5.7, 6.1]
+strings = ["one", "three", "five", "seven", "eleven", "eighteen"]
 
 
+# TODO: The min() function finds the minimum value
+print(f"min value in values is {min(values)}")
+print(f"min value in strings is {min(strings, key=len)}")
+# TODO: The max() function finds the maximum value
+
+print(f"min value in values is {max(values)}")
+print(f"min value in strings is {max(strings, key=len)}")
+
+# TODO: define a custom "key" function to extract a data field
 def getmag(dataitem):
     magnitude = dataitem["properties"]["mag"]
     if (magnitude is None):
         magnitude = 0
     return float(magnitude)
 
-# To display top 10 quake places in descending order
-data["features"].sort(key=getmag, reverse = True)
-for i in range(0,10):
-    print(data["features"][i]["properties"]["place"])
+# TODO: open the data file and load the JSON
+with open("./30DayQuakes.json", "r") as datafile:
+     data = json.load(datafile)
+
+print(data["metadata"]["title"])
+print(len(data["features"]))
+print(min(data["features"], key=getmag))
+print(max(data["features"], key=getmag))
